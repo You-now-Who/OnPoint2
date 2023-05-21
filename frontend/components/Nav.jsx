@@ -39,6 +39,11 @@ const Nav = () => {
               Create Post
             </Link>
 
+            <Link href='/idea-generator' className='black_btn'>
+              Idea Generator
+            </Link>
+            
+
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out
             </button>

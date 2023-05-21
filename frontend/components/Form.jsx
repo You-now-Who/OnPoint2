@@ -1,6 +1,18 @@
 import Link from "next/link";
+import ColorPaletteSelect from "./ColorPaletteSelect";
+import { useState } from "react";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+  const [selectedColors, setSelectedColors] = useState([]);
+
+  const handleColorChange = (selectedOptions) => {
+    console.log(selectedOptions)
+    setPost((prevPost) => ({
+      ...prevPost,
+      palette: selectedOptions,
+    }));
+  };
+
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -27,7 +39,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           />
         </label>
 
-        <label>
+        {/* <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
           Font Family
           </span>
@@ -39,20 +51,14 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             required
             className='form_input '
           />
-        </label>
+        </label> */}
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
           Color Paletes
           </span>
 
-          <textarea
-            value={post.palete}
-            onChange={(e) => setPost({ ...post, palete: e.target.value })}
-            placeholder='Color Paletes of your choice'
-            required
-            className='form_input '
-          />
+          <ColorPaletteSelect onColorChange={handleColorChange} />
         </label>
 
         <label>
@@ -79,7 +85,14 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           <Link href={{
             pathname: '/design',
-            query: { type: type.toLowerCase() }
+            // add all the query params here
+            query: { 
+              prompt: post.prompt,
+              // font: post.font,
+              palete: post.palette,
+              tag: post.tag
+
+             }
           }}
             type='submit'
             disabled={submitting}
