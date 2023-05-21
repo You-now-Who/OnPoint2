@@ -1,0 +1,20 @@
+{
+    "general": [
+        "infographics",
+        "interesting_fact",
+        "question_of_the_day",
+        "expert_tip",
+        "today_in_history",
+        "quote_of_the_day"
+    ],
+    "commercial": [
+        "product_demo",
+        "product_review",
+        "flash_sale",
+        "product_launch",
+        "customer_testimonial",
+        "customer_story",
+        "special_offer",
+        "behind_the_scenes"
+    ]
+}
