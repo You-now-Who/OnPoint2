@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-// import html.json file in the same directory
+import { useRouter } from 'next/navigation';
 import DidYouKnow from '@components/htmlRenders/DidYouKnow';
 import QuestionOfDay from '@components/htmlRenders/QuestionOfDay';
 
@@ -23,6 +23,8 @@ const Sidebar = ({ sidebarContent }) => {
 };
 
 const DesignPage = () => {
+  const router = useRouter();
+
   const [backgroundColor, setBackgroundColor] = useState('#ffffff');
   const [primaryColor, setPrimaryColor] = useState('#ffffff');
   const [secondaryColor, setSecondaryColor] = useState('#ffffff');
@@ -35,6 +37,10 @@ const DesignPage = () => {
   const [iframeHeight, setIframeHeight] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState('Did You Know');
   
+  // const { username, age } = router.query;
+  // console.log(username, age);
+
+  console.log(router.query);
 
   const templates = Object.keys(Templates);
   const iframeRef = useRef(null);
@@ -58,26 +64,6 @@ const DesignPage = () => {
   const handleMainTextChange = (e) => {
     setMainText(e.target.value);
     };
-
-    // useEffect(() => { 
-    //     const updateIframeHeight = () => {
-    //         if (iframeRef.current) {
-    //           setIframeHeight(iframeRef.current.contentWindow.document.documentElement.scrollHeight);
-    //         }
-    //       };
-      
-    //       window.addEventListener('resize', updateIframeHeight);
-      
-    //       return () => {
-    //         window.removeEventListener('resize', updateIframeHeight);
-    //       };
-    //     }, []);
-
-    // useEffect(() => {
-    //         if (iframeRef.current) {
-    //           iframeRef.current.style.height = `${iframeHeight}px`;
-    //         }
-    //       }, [iframeHeight]);
 
     const sidebarContent = (   
         <div className="flex flex-col">

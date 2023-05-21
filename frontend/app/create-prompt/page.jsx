@@ -28,7 +28,7 @@ const CreatePrompt = () => {
       });
 
       if (response.ok) {
-        router.push("/");
+        router.push("/design?username=ss&age=$dd");
       }
     } catch (error) {
       console.log(error);

@@ -11,7 +11,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </p>
 
       <form
-        onSubmit={handleSubmit}
         className='mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism'
       >
         <label>
@@ -78,13 +77,16 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             Cancel
           </Link>
 
-          <button
+          <Link href={{
+            pathname: '/design',
+            query: { type: type.toLowerCase() }
+          }}
             type='submit'
             disabled={submitting}
             className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
-          >
+            >
             {submitting ? `${type}ing...` : type}
-          </button>
+          </Link>
         </div>
       </form>
     </section>
