@@ -1,6 +1,6 @@
 "use Client";
 
-const QuestionOfDay = ({backgroundColor, textColor, mainText, headingText}) => {
+const QuestionOfDay = ({backgroundColor, textColor, mainText, headingText, imageURL}) => {
     return (
       <>
         <iframe
@@ -36,7 +36,7 @@ const QuestionOfDay = ({backgroundColor, textColor, mainText, headingText}) => {
                       display: flex;
                       justify-content: space-between;
                       align-items: center;
-                      text-color: ${textColor};
+                      color: ${textColor};
                       margin-top: 7%;
                   }
           
@@ -88,7 +88,7 @@ const QuestionOfDay = ({backgroundColor, textColor, mainText, headingText}) => {
                       <p class="question_title">${headingText}</p>
                       <p class="real_question">${mainText}</p>
                   </div> 
-                  <img src="./question-sign.png" class="question_mark"></img>
+                  <img src="${imageURL}" class="question_mark"></img>
               </div>
               <div class="line"></div>
           </body>
